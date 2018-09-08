@@ -1,0 +1,26 @@
+page-login {
+  background : url(/assets/imgs/test.jpg)    ;
+ 
+ ion-content{
+  background : url(/assets/imgs/test.jpg)   bottom   ;
+	
+ }
+ ion-tabs.tabs-color-active-custom .tab-item {
+  color: [inactive color]; 
+}
+ion-list{
+  color: grey;
+}
+ ion-navbar{
+   background: blue;
+ }
+ .container{
+ margin-top: 10%;
+
+ } 
+ form{
+
+  background: rgba(0,0,0,0);
+
+ }
+}

@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{item.title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-card>
+    <img src="{{item.preview.images[0].source.url}}" />
+    <ion-card-content>
+      <ion-card-title>
+        {{item.title}}
+      </ion-card-title>
+      <p>
+        <strong>
+          <ion-icon name="person"></ion-icon>Author :- </strong> {{item.author}}
+      </p>
+      <p>
+        <strong>
+          <ion-icon name="planet"></ion-icon>
+          Domain :- </strong>{{item.domain}}
+      </p>
+      <ion-icon name="chatboxes">
+        {{item.num_comments}}
+      </ion-icon>
+      <ion-icon name="thumbs-up"> {{item.score}}</ion-icon>
+      <a href="{{item.url}}" red>
+        <p style="color: blue;">View on browser</p>
+      </a>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

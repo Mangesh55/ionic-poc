@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Dashboard</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>Category</ion-label>
+      <ion-select (ionChange)="changeCategory()" [(ngModel)]="category" name="category ">
+        <ion-option value="sports">Sports</ion-option>
+        <ion-option value="food">Food</ion-option>
+        <ion-option value="pics">Pics</ion-option>
+        <ion-option value="wholesomememes">Memes</ion-option>
+        <ion-option value="gifs">Gifs</ion-option>
+        <ion-option value="comics">Comics</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Limit</ion-label>
+      <ion-select (ionChange)="changeCategory()" [(ngModel)]="limit" name="limit ">
+        <ion-option value="5">5</ion-option>
+        <ion-option value="10">10</ion-option>
+        <ion-option value="15">15</ion-option>
+        <ion-option value="20">20</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+      <ion-thumbnail *ngIf="item.data.thumbnail" item-left>
+        <img src="{{item.data.thumbnail}}" alt="">
+      </ion-thumbnail>
+      <h4>{{item.data.title}}</h4>
+      <button ion-button clear [navPush]="status" [navParams]="item.data">
+        View &nbsp;
+        <ion-icon name="eye"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+</ion-content>

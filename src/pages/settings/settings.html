@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding class="container">
+  <form>
+  <ion-list>
+    <ion-item>
+      <ion-label>Set Default Category</ion-label>
+      <ion-select [(ngModel)]="category" name="category">
+        <ion-option value="sports">Sports</ion-option>
+        <ion-option value="food">Food</ion-option>
+        <ion-option value="arts">Arts</ion-option>
+        <ion-option value="politivs">Politics</ion-option>
+        <ion-option value="news">News</ion-option>
+        <ion-option value="pics">Pics</ion-option>
+      
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Items to display</ion-label>
+      <ion-select [(ngModel)]="limit" name="limit">
+        <ion-option value="5">5</ion-option>
+        <ion-option value="10">10</ion-option>
+        <ion-option value="15">15</ion-option>
+      </ion-select>
+    </ion-item>
+    <button ion-button outline block (click)="saveChanges()">Save Changes</button>
+  </ion-list>
+</form>
+  <button ion-button block outline (click)="gotoReset()">Reset Password</button>
+  <br>
+  <button ion-button (click)="gotoAbout()" block>About App
+  </button>
+</ion-content>
