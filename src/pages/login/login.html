@@ -4,24 +4,24 @@
   </ion-navbar>
 </ion-header>
 <ion-content class="container">
-  <form #f="ngForm" (ngSubmit)="onSubmit()" class="form">
-    <ion-list>
-      <ion-item>
-        <ion-label floating>Username</ion-label>
-        <ion-input type="text" required ngModel name="username"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Password</ion-label>
-        <ion-input type="password" required ngModel name="password"></ion-input>
-      </ion-item>
-      <ion-item>
-        <button ion-button (click)="goto()" large [disabled]="!f.valid" block outline>Login</button>
-      </ion-item>
-      <ion-item>
-        <button ion-button clear block (click)="gotoRegister()">
-          <h5>Not account yet? Create One</h5>
-        </button>
-      </ion-item>
-    </ion-list>
-  </form>
-</ion-content>
+      <form #f="ngForm" (ngSubmit)="onSubmit()" class="form">
+        <ion-list>
+          <ion-item>
+            <ion-label floating>Username</ion-label>
+            <ion-input type="text" required ngModel name="username"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" required ngModel name="password"></ion-input>
+          </ion-item>
+          <ion-item>
+            <button ion-button (click)="goto()" large [disabled]="!f.valid" block outline>Login</button>
+          </ion-item>
+          <ion-item>
+            <button ion-button clear block (click)="gotoRegister()">
+              <h5>Not account yet? Create One</h5>
+            </button>
+          </ion-item>
+        </ion-list>
+      </form>
+  </ion-content>
