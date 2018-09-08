@@ -1,7 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,LoadingController,
+  AlertController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
-import { RegisterService } from '../services/register';
+import {UserService} from '../services/user';
+import {User} from '../data/user.interface';
+import { FormControl } from "@angular/forms";
+import {LoginService} from '../services/login';
+import {LoginPage} from '../login/login';
+import firebase from 'firebase';
 @IonicPage()
 @Component({
   selector: 'page-register',
@@ -9,15 +15,45 @@ import { RegisterService } from '../services/register';
 })
 export class RegisterPage {
   @ViewChild('f') form: NgForm;
-  constructor(public navCtrl: NavController, public navParams: NavParams,
-    private registerService: RegisterService
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    private authService: LoginService,
+    private loadingCtrl: LoadingController,
+    private alertCtrl: AlertController,
+    public userService: UserService
   ) {
   }
-  goto() {
-    console.log(this.form.value.password);
-    this.navCtrl.popToRoot();
-  }
-  onSubmit() {
-    this.registerService.registerUser(this.form.value.username, this.form.value.password);
+  user: User = {
+    email: "",
+    password: ""
+  };
+  signInLoading = this.loadingCtrl.create({
+    content: "Wait few seconds.."
+  });
+  signUpLoading = this.loadingCtrl.create({
+    content: "Wait Signing up..."
+  });
+  registrationDoneAlert = this.alertCtrl.create({
+    title: "Registration Done",
+    message: "User Registration Done.Now you can login.",
+    buttons: ["Ok"]
+  });
+  registrationFailedAlert = this.alertCtrl.create({
+    title: "Signup failed!",
+    buttons: ["Ok"]
+  });
+  
+  onSubmit(form: FormControl) {
+
+    this.authService
+      .signUp(form.value.username,form.value.password)
+      .then(() => { this.signUpLoading.dismiss();
+        this.navCtrl.push(LoginPage);
+      })
+      .catch(error => {
+        this.signUpLoading.dismiss();
+        this.registrationFailedAlert.setMessage(error.message);
+        this.registrationFailedAlert.present();
+      });
   }
 }

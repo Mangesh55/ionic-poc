@@ -6,7 +6,7 @@ import { MyApp } from './app.component';
 import {LogOutPage} from '../pages/logout/logout';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-
+import {LoginService} from '../pages/services/login';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
@@ -18,6 +18,7 @@ import { StatusPage } from '../pages/status/status';
 import { ResetpasswordPage } from '../pages/resetpassword/resetpassword';
 import { AboutappPage } from '../pages/aboutapp/aboutapp';
 import {SettingsPage} from '../pages/settings/settings';
+import {UserService} from '../pages/services/user';
 @NgModule({
   declarations: [
     MyApp,
@@ -54,6 +55,8 @@ import {SettingsPage} from '../pages/settings/settings';
     RedditService,
     SplashScreen,
     RegisterService,
+    LoginService,
+    UserService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
